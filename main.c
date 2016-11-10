@@ -24,8 +24,8 @@ int main () {
     umask(0);
     while (42) { //wasn't working when I put it on 1 for whatever reason, changed it to first number that came to mind
         printf("PID: %d\n", getpid()); 
-        signal(SIGINT, sighandler);
-        signal(SIGUSR1,sighandler);
+        signal(SIGINT, sighandler); //kill -2 <PID> or ^C to trigger
+        signal(SIGUSR1,sighandler); //kill -10 <PID> to trigger
         sleep(1);
     }
     return 0; 
